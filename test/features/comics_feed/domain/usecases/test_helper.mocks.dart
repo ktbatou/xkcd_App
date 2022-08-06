@@ -7,9 +7,9 @@ import 'dart:async' as _i4;
 
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:xkcd_app/comics_feed/domain/entities/comics_feed_entity.dart'
+import 'package:xkcd_app/features/comics_feed/domain/entities/comics_feed_entity.dart'
     as _i6;
-import 'package:xkcd_app/comics_feed/domain/repositories/comics_feed_repository.dart'
+import 'package:xkcd_app/features/comics_feed/domain/repositories/comics_feed_repository.dart'
     as _i3;
 import 'package:xkcd_app/core/error/failures.dart' as _i5;
 

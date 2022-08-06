@@ -1,15 +1,20 @@
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:xkcd_app/comics_feed/data/datasources/comics_feed_local_data_source.dart';
-import 'package:xkcd_app/comics_feed/data/datasources/comics_feed_remote_data_source.dart';
-import 'package:xkcd_app/comics_feed/domain/usecases/get_comics_feed_usecase.dart';
-import 'package:xkcd_app/comics_feed/presentation/provider/Comic_provider.dart';
+import 'package:xkcd_app/features/comics_feed/data/datasources/comics_feed_local_data_source.dart';
+import 'package:xkcd_app/features/comics_feed/data/datasources/comics_feed_remote_data_source.dart';
+import 'package:xkcd_app/features/comics_feed/domain/usecases/get_comics_feed_usecase.dart';
+import 'package:xkcd_app/features/comics_feed/presentation/provider/Comic_Id_provider.dart';
+import 'package:xkcd_app/features/comics_feed/presentation/provider/Comic_provider.dart';
 import 'package:xkcd_app/core/network/network_info.dart';
 import 'package:xkcd_app/core/provider/NetworkInfoProvider.dart';
 import 'package:xkcd_app/core/provider/favorite_provider.dart';
-import 'comics_feed/data/repositories/comics_feed_repository_impl.dart';
-import 'comics_feed/domain/repositories/comics_feed_repository.dart';
-import 'comics_feed/presentation/provider/Comic_Id_provider.dart';
+import 'package:xkcd_app/features/favorite_comics/data/datasources/favorite_comic_local_data_source.dart';
+import 'package:xkcd_app/features/favorite_comics/data/repositories/favorite_comic_repository_impl.dart';
+import 'package:xkcd_app/features/favorite_comics/domain/repositories/favorite_comic_repository.dart';
+import 'package:xkcd_app/features/favorite_comics/domain/usecases/favoriteComicUseCase.dart';
+import 'package:xkcd_app/features/favorite_comics/presentation/provider/Favorite_comics_list.dart';
+import 'features/comics_feed/data/repositories/comics_feed_repository_impl.dart';
+import 'features/comics_feed/domain/repositories/comics_feed_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -51,6 +56,30 @@ Future<void> setup() async {
   serviceLocator.registerLazySingleton<ComicsFeedLocalDataSource>(
       () => ComicsFeedLocalDataSourceIMpl(sharedPreferences: serviceLocator()));
 
+  // =================================== ********** =======================================
+
+  //! features : favorite comic
+
+  // provider
+
+  /// favorite List Provider
+  serviceLocator.registerFactory(() => FavoriteComicsList(
+      sharedPreferences: serviceLocator(),
+      favoriteComicUseCase: serviceLocator()));
+  // Usecase
+
+  /// Favorite Comic UseCase
+  serviceLocator
+      .registerLazySingleton(() => FavoriteComicUseCase(serviceLocator()));
+  // Repository
+  serviceLocator.registerLazySingleton<FavoriteComicRepository>(() =>
+      FavoriteComicRepositoryImpl(
+          sharedPreferences: serviceLocator(),
+          localDataSource: serviceLocator()));
+  // data source
+  /// localDataSource
+  serviceLocator.registerLazySingleton<FavoriteComicLocalDataSource>(() =>
+      FavoriteComicLocalDataSourceImpl(sharedPreferences: serviceLocator()));
   // =================================== ********** =======================================
 
   //! core

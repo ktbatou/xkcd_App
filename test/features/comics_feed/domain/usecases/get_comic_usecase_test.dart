@@ -2,8 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:xkcd_app/comics_feed/domain/entities/comics_feed_entity.dart';
-import 'package:xkcd_app/comics_feed/domain/usecases/get_comics_feed_usecase.dart';
+import 'package:xkcd_app/features/comics_feed/domain/entities/comics_feed_entity.dart';
+import 'package:xkcd_app/features/comics_feed/domain/usecases/get_comics_feed_usecase.dart';
 import 'test_helper.mocks.dart';
 
 void main() {

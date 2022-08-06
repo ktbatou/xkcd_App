@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:xkcd_app/comics_feed/data/models/comics_feed_model.dart';
-import 'package:xkcd_app/comics_feed/domain/entities/comics_feed_entity.dart';
+import 'package:xkcd_app/features/comics_feed/data/models/comics_feed_model.dart';
+import 'package:xkcd_app/features/comics_feed/domain/entities/comics_feed_entity.dart';
 
 import '../../../../core/fixtures/fixture_reader.dart';
 
