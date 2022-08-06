@@ -11,6 +11,7 @@ import 'comics_feed/data/repositories/comics_feed_repository_impl.dart';
 import 'comics_feed/domain/repositories/comics_feed_repository.dart';
 import 'comics_feed/presentation/provider/Comic_Id_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 
 final serviceLocator = GetIt.instance;
 
@@ -44,7 +45,7 @@ Future<void> setup() async {
   // data source
   /// remoteDataSource
   serviceLocator.registerLazySingleton<ComicsFeedRemoteDataSource>(
-      () => ComicsFeedRemoteDataSourceIMpl());
+      () => ComicsFeedRemoteDataSourceIMpl(client: serviceLocator()));
 
   /// LocalDataSource
   serviceLocator.registerLazySingleton<ComicsFeedLocalDataSource>(
@@ -69,5 +70,8 @@ Future<void> setup() async {
   //sharedPrefernces
 
   serviceLocator.registerFactory<SharedPreferences>(() => sharedPreferences);
+
+  //http Client
+  serviceLocator.registerLazySingleton(() => http.Client());
   // =================================== ********** =======================================
 }

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:xkcd_app/comics_feed/data/models/comics_feed_model.dart';
 import 'package:xkcd_app/core/error/exceptions.dart';
@@ -8,6 +9,8 @@ abstract class ComicsFeedRemoteDataSource {
 }
 
 class ComicsFeedRemoteDataSourceIMpl implements ComicsFeedRemoteDataSource {
+  final http.Client client;
+  ComicsFeedRemoteDataSourceIMpl({required this.client});
   @override
   Future<ComicModel> getComic(int id) {
     // if the id is default i get the current Comic with the current Comic endpoint,
@@ -22,7 +25,7 @@ class ComicsFeedRemoteDataSourceIMpl implements ComicsFeedRemoteDataSource {
 
   Future<ComicModel> _getComicFromUrl(String urlString) async {
     Uri url = Uri.parse(urlString);
-    final response = await http.get(url);
+    final response = await client.get(url);
 
     if (response.statusCode == 200) {
       return ComicModel.fromJson(json.decode(response.body));
