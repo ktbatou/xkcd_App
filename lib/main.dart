@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:xkcd_app/features/comic_explanation/presentation/provider/comic_explanation_provider.dart';
 import 'package:xkcd_app/features/comics_feed/presentation/provider/Comic_Id_provider.dart';
 import 'package:xkcd_app/features/comics_feed/presentation/provider/Comic_provider.dart';
 import 'package:xkcd_app/core/page/main_page.dart';
@@ -13,6 +14,8 @@ void main() async {
   await di.setup();
 
   runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+        create: ((context) => di.serviceLocator<ComicExplanationProvider>())),
     ChangeNotifierProvider(
         create: (context) => di.serviceLocator<ComicIdProvider>()),
     ChangeNotifierProvider(

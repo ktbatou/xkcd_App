@@ -31,16 +31,13 @@ class _InifinteScrollPaginationState extends State<InifinteScrollPagination> {
       final List<ComicsFeedEntity> newItems =
           await Provider.of<ComicProvider>(context, listen: false)
               .comicsList(pageKey);
-      print(newItems);
       if (newItems.length < 10) {
         _pagingController.appendLastPage(newItems);
       } else {
         final nextPageKey = pageKey - newItems.length;
-
         _pagingController.appendPage(newItems, nextPageKey);
       }
     } catch (error) {
-      print(error);
       _pagingController.error = error;
     }
   }

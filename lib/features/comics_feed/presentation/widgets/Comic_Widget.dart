@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:xkcd_app/features/comic_explanation/presentation/pages/comic_explanation_page.dart';
 import 'package:xkcd_app/features/comics_feed/presentation/widgets/Comic_image.dart';
 import 'package:xkcd_app/core/functions/share_image.dart';
 import 'package:xkcd_app/core/provider/favorite_provider.dart';
@@ -43,7 +44,15 @@ class _ComicWidgetState extends State<ComicWidget> {
         Provider.of<NetworkInfoProvider>(context, listen: false).isConnected;
     var item = widget.item;
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ComicExplanation(
+                    item: item,
+                  )),
+        );
+      },
       child: Container(
         width: 400,
         decoration: const BoxDecoration(
