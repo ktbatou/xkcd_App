@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:xkcd_app/features/comic_explanation/presentation/provider/comic_explanation_provider.dart';
+import 'package:xkcd_app/features/comic_explanation/presentation/widgets/Comic_Explanation_Futurebuilder.dart';
 import 'package:xkcd_app/features/comic_explanation/presentation/widgets/comic_explanation_widget.dart';
 
 class ComicExplanation extends StatefulWidget {
@@ -12,17 +13,6 @@ class ComicExplanation extends StatefulWidget {
 }
 
 class _ComicExplanationState extends State<ComicExplanation> {
-  @override
-  void initState() {
-    setEXplanationText();
-    super.initState();
-  }
-
-  setEXplanationText() async {
-    await Provider.of<ComicExplanationProvider>(context, listen: false)
-        .comicExplanationText(widget.item.number, widget.item.title);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +37,7 @@ class _ComicExplanationState extends State<ComicExplanation> {
                 fontSize: 16),
           ),
         ),
-        body: ComicEXplanationWidget(
+        body: ComicExplanationFutureBuilder(
           item: widget.item,
         ));
   }

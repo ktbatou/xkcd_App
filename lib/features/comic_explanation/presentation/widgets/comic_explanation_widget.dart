@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:xkcd_app/features/comic_explanation/presentation/provider/comic_explanation_provider.dart';
+import 'package:xkcd_app/features/comic_explanation/presentation/widgets/comic_explanation_img.dart';
 
 class ComicEXplanationWidget extends StatefulWidget {
   var item;
@@ -27,6 +28,7 @@ class _ComicEXplanationWidgetState extends State<ComicEXplanationWidget> {
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
             )),
           ),
+          ComicExplanationImg(imageUrl: widget.item.img),
           const Padding(
             padding: EdgeInsets.only(
               left: 10.0,
