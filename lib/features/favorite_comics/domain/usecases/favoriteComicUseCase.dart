@@ -8,6 +8,8 @@ class FavoriteComicUseCase {
 
   FavoriteComicUseCase(this.repository);
 
+  // call method can be run by calling FavoriteComicUseCase.call(id)
+  // or just FavoriteComicUseCase(id)
   Future<Either<Failure, FavoriteComicEntity>> call(int id) {
     return repository.getFavoriteComic(id);
   }

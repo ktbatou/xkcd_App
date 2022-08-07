@@ -27,6 +27,11 @@ class _FavoriteComicState extends State<FavoriteComic> {
     }
   }
 
+// getIconMap create a map of key value pais where the key
+// is the index of item (favored Comic) and the value is IConData (Icons.fvorite).
+// this is so we can get the state of an item's fav icon and change it
+// to Icons.favorite_border_outlined when clicked.
+
   getIconMap(List items) {
     Map<int, dynamic> icons = {};
     if (items.isNotEmpty) {

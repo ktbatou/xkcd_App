@@ -9,6 +9,8 @@ class GetComicUseCase {
 
   GetComicUseCase(this.repository);
 
+  // call method can be run by calling GetComicUseCase.call(id)
+  // or just GetComicUseCase(id)
   Future<Either<Failure, ComicsFeedEntity>> call(int id) {
     return repository.getComic(id) as Future<Either<Failure, ComicsFeedEntity>>;
   }
