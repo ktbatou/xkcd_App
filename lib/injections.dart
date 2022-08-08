@@ -16,6 +16,12 @@ import 'package:xkcd_app/features/favorite_comics/data/repositories/favorite_com
 import 'package:xkcd_app/features/favorite_comics/domain/repositories/favorite_comic_repository.dart';
 import 'package:xkcd_app/features/favorite_comics/domain/usecases/favoriteComicUseCase.dart';
 import 'package:xkcd_app/features/favorite_comics/presentation/provider/Favorite_comics_list.dart';
+import 'package:xkcd_app/features/search/data/datasources/comic_local_data_source.dart';
+import 'package:xkcd_app/features/search/data/datasources/comic_remote_data_source.dart';
+import 'package:xkcd_app/features/search/data/repositories/comic_repository_impl.dart';
+import 'package:xkcd_app/features/search/domain/repositories/comic_repository.dart';
+import 'package:xkcd_app/features/search/domain/usecases/get_comic_usecase.dart';
+import 'package:xkcd_app/features/search/presentation/provider/search_comic_provider.dart';
 import 'features/comic_explanation/data/repositories/comic_explanation_repositoryImpl.dart';
 import 'features/comic_explanation/presentation/provider/comic_explanation_provider.dart';
 import 'features/comics_feed/data/repositories/comics_feed_repository_impl.dart';
@@ -106,6 +112,30 @@ Future<void> setup() async {
   serviceLocator.registerLazySingleton<ComicExplanationRemoteDataSource>(
       () => ComicExplanationRemoteDataSourceIMpl());
 
+  // =================================== ********** =======================================
+
+  //! feature: Search Comic
+  // provider
+  serviceLocator.registerFactory<SearchComicProvider>(
+      () => SearchComicProvider(comicUseCase: serviceLocator()));
+  // UseCase
+  serviceLocator.registerLazySingleton<GetSearchComicUseCase>(
+      (() => GetSearchComicUseCase(serviceLocator())));
+  // repository
+  serviceLocator.registerLazySingleton<ComicRepository>(() =>
+      ComicRepositoryImpl(
+          remoteDataSource: serviceLocator(),
+          localDataSource: serviceLocator(),
+          sharedPreferences: serviceLocator(),
+          networkInfo: serviceLocator()));
+  // DataSource
+
+  //localDataSource
+  serviceLocator.registerLazySingleton<ComicLocalDataSource>(
+      () => ComicLocalDataSourceIMpl(sharedPreferences: sharedPreferences));
+  //remoteDataSource
+  serviceLocator.registerLazySingleton<ComicRemoteDataSource>(
+      () => ComicRemoteDataSourceIMpl());
   // =================================== ********** =======================================
 
   //! core

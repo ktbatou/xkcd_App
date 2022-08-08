@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:xkcd_app/features/comics_feed/presentation/pages/comics_home.dart';
 import 'package:xkcd_app/features/comics_feed/presentation/provider/Comic_Id_provider.dart';
 import 'package:xkcd_app/features/favorite_comics/presentation/pages/favorite_comics_page.dart';
+import 'package:xkcd_app/features/search/presentation/pages/search_comic_page.dart';
 import '../provider/NetworkInfoProvider.dart';
 
 class MainPage extends StatefulWidget {
@@ -50,6 +51,7 @@ class _MainPageState extends State<MainPage> {
   static const List<Widget> _widgetOptions = <Widget>[
     ComicsHome(),
     FavoriteComic(),
+    SearchComic(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -79,6 +81,11 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(
             icon: const Icon(Icons.favorite),
             label: 'Favorite',
+            backgroundColor: Colors.grey.shade100,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.search),
+            label: 'Search',
             backgroundColor: Colors.grey.shade100,
           ),
         ],

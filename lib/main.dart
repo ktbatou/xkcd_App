@@ -7,6 +7,7 @@ import 'package:xkcd_app/core/page/main_page.dart';
 import 'package:xkcd_app/core/provider/NetworkInfoProvider.dart';
 import 'package:xkcd_app/core/provider/favorite_provider.dart';
 import 'package:xkcd_app/features/favorite_comics/presentation/provider/Favorite_comics_list.dart';
+import 'package:xkcd_app/features/search/presentation/provider/search_comic_provider.dart';
 import 'injections.dart' as di;
 
 void main() async {
@@ -14,6 +15,8 @@ void main() async {
   await di.setup();
 
   runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+        create: ((context) => di.serviceLocator<SearchComicProvider>())),
     ChangeNotifierProvider(
         create: ((context) => di.serviceLocator<ComicExplanationProvider>())),
     ChangeNotifierProvider(
