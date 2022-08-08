@@ -37,7 +37,7 @@ class _ComicExplanationState extends State<ComicExplanation> {
                 fontSize: 16),
           ),
         ),
-        body: ComicExplanationFutureBuilder(
+        body: ComicExplanation(
           item: widget.item,
         ));
   }

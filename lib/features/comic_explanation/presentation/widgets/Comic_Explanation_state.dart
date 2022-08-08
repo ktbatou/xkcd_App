@@ -4,17 +4,15 @@ import 'package:xkcd_app/features/comic_explanation/presentation/provider/comic_
 import 'package:xkcd_app/features/comic_explanation/presentation/widgets/comic_explanation_widget.dart';
 import '../../../../core/provider/NetworkInfoProvider.dart';
 
-class ComicExplanationFutureBuilder extends StatefulWidget {
+class ComicExplanation extends StatefulWidget {
   var item;
-  ComicExplanationFutureBuilder({required this.item});
+  ComicExplanation({required this.item});
 
   @override
-  State<ComicExplanationFutureBuilder> createState() =>
-      _ComicExplanationFutureBuilderState();
+  State<ComicExplanation> createState() => _ComicExplanationState();
 }
 
-class _ComicExplanationFutureBuilderState
-    extends State<ComicExplanationFutureBuilder> {
+class _ComicExplanationState extends State<ComicExplanation> {
   @override
   void initState() {
     super.initState();
