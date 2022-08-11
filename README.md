@@ -6,7 +6,7 @@
   <a href="https://github.com/ktbatou/xkcd_App">
     <img src="https://docs.google.com/uc?export=download&id=1rLIEGga7rSnvRsoTkJvbrskloYYKIn4m" alt="Logo">
   </a>
-
+</div>
 <h2 align="left">Xkcd  Comics Application</h2>
 </br>
 <!-- PROJECT LOGO -->
