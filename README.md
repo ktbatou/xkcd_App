@@ -71,7 +71,7 @@ Plugin | Usage
 <!--  Directory Structure -->
 
 ## Directory Structure
-<details>
+<details open>
  <summary>Click to spand</summary>
  
 ```
@@ -185,9 +185,10 @@ Please download apk from  [Releases](https://github.com/ktbatou/xkcd_App/release
 <!-- CONTACT -->
 ## Contact
 
-Don't hesitate to visite my <strong>[Portfolio](https://ktbatou.tech/)</strong>.
-[![twitter][twitter-shield]][twitter-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+- Don't hesitate to visite my <strong>[Portfolio](https://ktbatou.tech/)</strong>.
+-  [![twitter][twitter-shield]][twitter-url]
+- [![LinkedIn][linkedin-shield]][linkedin-url]
+
 
   ### Don't forget to :star: the repo
 
