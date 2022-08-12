@@ -21,10 +21,22 @@
 </br>
 
 
-
 <!-- ABOUT THE PROJECT -->
 ## Demo
 
+- Comic Feed with a lazy load and display small chunks of Comics as the user scrolls down the screen,
+	with an access to the comic's explanation, and the ability to favorite and share a comic: 
+
+https://user-images.githubusercontent.com/56794645/184344078-9ffe14a1-9672-4d81-8ae0-ce028b17a5e3.mp4
+
+- Search for comic by id (number), favorite the comic in result, get explanation, and share with others :
+
+https://user-images.githubusercontent.com/56794645/184344086-4cdf2a12-80c4-440d-add7-30220094c163.mp4
+
+
+- favorite comics share, and unfavorite the comic, with availability offline.
+
+  https://user-images.githubusercontent.com/56794645/184344183-b34d7380-3b8d-45aa-a8d8-b6b96fc6ddc5.mp4
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
