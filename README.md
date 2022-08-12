@@ -26,18 +26,23 @@
 
 - Comic Feed with a lazy load and display small chunks of Comics as the user scrolls down the screen,
 	with an access to the comic's explanation, and the ability to favorite and share a comic: 
+<div align= "center">
 
 https://user-images.githubusercontent.com/56794645/184344078-9ffe14a1-9672-4d81-8ae0-ce028b17a5e3.mp4
+</div>
 
 - Search for comic by id (number), favorite the comic in result, get explanation, and share with others :
+<div align= "center">
 
 https://user-images.githubusercontent.com/56794645/184344086-4cdf2a12-80c4-440d-add7-30220094c163.mp4
 
+</div>
 
 - favorite comics share, and unfavorite the comic, with availability offline.
+<div align= "center">
 
   https://user-images.githubusercontent.com/56794645/184344183-b34d7380-3b8d-45aa-a8d8-b6b96fc6ddc5.mp4
-
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -159,6 +164,21 @@ Plugin | Usage
 ```
 </details>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!--Architecture-->
+## Architecture
+In this project i've implemented the  [**_Reso Coder’s_** Clean Architecture](https://resocoder.com/2019/08/27/flutter-tdd-clean-architecture-course-1-explanation-project-structure/). </br>
+Clean Architecture is one of the most powerful solutions to build clean apps with separated code into independent layers and depend on abstractions instead of concrete implementations, which make the resulting app scalable, readable, testable, and can be easily maintained at any time, also  the individual pieces can be reused, as well as developed and updated independently.
+
+<div align ="center">
+ <img src="https://i0.wp.com/resocoder.com/wp-content/uploads/2019/08/Clean-Architecture-Flutter-Diagram.png?w=556&ssl=1" alt="flutter clean architecture diagram">
+ <p>The flutter clean architecture diagram. </p>
+</div>
+
+</br>
+
+Every "feature" of the app, like Comics feed, will be divided into 3 layers - **presentation**, **domain** and **data**.
 
 
 <!-- GETTING STARTED -->
